@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify</title>
+    <link rel="icon" type="image/x-icon" href="covers/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fab fa-spotify"></i>
+                <span>Spotify</span>
+            </div>
+            <ul class="nav">
+                <li class="nav-item active" data-target="home"><i class="fas fa-home"></i> Home</li>
+                <li class="nav-item" data-target="search"><i class="fas fa-search"></i> Search</li>
+                <li class="nav-item" data-target="library"><i class="fas fa-book"></i> Your Library</li>
+            </ul>
+            <div class="playlists">
+                <h4>PLAYLISTS</h4>
+                <ul>
+                    <li id="createPlaylist"><i class="fas fa-plus-circle"></i> Create Playlist</li>
+                    <li id="likedSongs"><i class="fas fa-heart"></i> Liked Songs</li>
+                </ul>
+                <div id="customPlaylists"></div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <div class="nav-buttons"></div>
+                <div class="search-container">
+                    <div class="search-bar" id="searchBar">
+                        <input type="text" id="searchInput" placeholder="Search for songs, artists...">
+                        <i class="fas fa-times" id="closeSearch"></i>
+                    </div>
+                    <i class="fas fa-search" id="searchIcon"></i>
+                </div>
+                <div class="user">
+                    <img src="covers/Soilder.png" alt="User">
+                    <span>BHaRaT</span>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="content-section active" id="home-content">
+                    <h1>Trending Songs</h1>
+                    <div class="playlist-grid" id="playlistGrid"></div>
+                    <h2>Recently played</h2>
+                    <div class="recently-played" id="recentlyPlayed"></div>
+                </div>
+
+                <div class="content-section" id="search-content">
+                    <h1>Search</h1>
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+
+                <div class="content-section" id="library-content">
+                    <h1>Your Library</h1>
+                    <div class="library-items" id="libraryItems"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Player -->
+        <div class="player">
+            <div class="song-info">
+                <img id="current-song-img" src="covers/X.jpg" alt="Album Art">
+                <div class="song-details">
+                    <span id="current-song-title">No song selected</span>
+                    <span id="current-song-artist"></span>
+                </div>
+                <i class="far fa-heart" id="likeButton"></i>
+            </div>
+            <div class="player-controls">
+                <div class="controls">
+                    <button id="shuffleButton"><i class="fas fa-random"></i></button>
+                    <button><i class="fas fa-step-backward"></i></button>
+                    <button id="play-pause"><i class="fas fa-play"></i></button>
+                    <button><i class="fas fa-step-forward"></i></button>
+                    <button id="reloadButton"><i class="fas fa-redo"></i></button>
+                </div>
+                <div class="progress-container">
+                    <span class="time current">0:00</span>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                    <span class="time total">0:30</span>
+                </div>
+            </div>
+            <div class="volume-control">
+                <i class="fas fa-volume-up"></i>
+                <div class="volume-bar">
+                    <div class="volume-level"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Playlist Modal -->
+    <div class="modal" id="playlistModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create New Playlist</h2>
+            <input type="text" id="playlistName" placeholder="Playlist name">
+            <button id="savePlaylist">Create</button>
+        </div>
+    </div>
+
+    <audio id="audio-player"></audio>
+    <script src="script.js"></script>
+</body>
+
+</html>
